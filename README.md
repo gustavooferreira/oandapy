@@ -1,2 +1,44 @@
-README
-======
+oandaApi
+=======
+
+oandaApi is a python3 wrapper for OANDA's REST API v20.
+
+INSTALL
+=======
+
+Right now, this libraby hasnot yet been pushed to pypi, so as of now you can't use pip to install it. (But will be soon in pypi)
+
+For now you will have to clone this repository and put it on your python path.
+
+  export PYTHONPATH="${PYTHONPATH}:/path/to/oandaApi/oanda_api"
+
+oandaApi depend on python-requests, which you can install using pip and the requirements.txt file like this:
+
+  pip install -r requirements.txt
+
+USAGE
+=====
+
+Include the oandaAPi module and create an instance with your account token:
+
+  from oanda_api import oanda
+
+  access_token = ""
+  con = oanda.APIv20(environment="practice", access_token=access_token)
+
+  try:
+    result = con.account.get_accounts()
+    print("Result: " + str(result))
+  except oanda.OandaError as exc:
+    print(str(exc))
+
+NOTES
+=====
+
+This project is still in its testing and documentation phase, and because of that no release has yet been made.
+
+Use it at your own risk.
+
+If you want to contribute feel free to do so, I appreciate it!
+
+Happy hunting on the markets!!
