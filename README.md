@@ -49,6 +49,7 @@ Quick notes
 -----------
 
 * This project started with [oanda/oandapy](https://github.com/oanda/oandapy) as a base project, but then was implemented in a different way, to easily support future oanda api versions.
-* Use it at your own risk.
+* Oanda API REST-v20 is still under development, some functionality have not yet been implemented (Streaming, Pricing History, Forex Labs), but I will keep an eye on it, and as soon as it gets implemented I will update this library accordingly.
+* Use this library at your own risk.
 * If you want to contribute feel free to do so, I appreciate it!
 * Happy hunting on the markets!!
