@@ -15,15 +15,17 @@ For now you will have to clone this repository and put it on your __PYTHONPATH__
 export PYTHONPATH="${PYTHONPATH}:/path/to/oandaApi/oanda_api"
 ```
 
-oandaApi depend on _python-requests_, which you can install using pip and the requirements.txt file like this:
+oandaApi depends on _python-requests_, which you can install using pip and the requirements.txt file like this:
 ```
 pip install -r requirements.txt
 ```
 
-or:
+or just:
 ```
 pip install requests
 ```
+
+__NOTE__ that you should use pip3 to install requests's python3 library.
 
 USAGE
 =====
