@@ -3,6 +3,8 @@ Overview
 
 [oandaApi](https://github.com/gustavooferreira/oandaApi) is a python3 wrapper for OANDA's REST API v20.
 
+Head over to [OANDA's REST API v20 docs](http://developer.oanda.com/rest-live-v20/introduction/) to go through their documentation.
+
 INSTALL
 =======
 
