@@ -1,7 +1,7 @@
-oandaApi
+Overview
 =======
 
-oandaApi is a python3 wrapper for OANDA's REST API v20.
+[oandaApi](https://github.com/gustavooferreira/oandaApi) is a python3 wrapper for OANDA's REST API v20.
 
 INSTALL
 =======
@@ -53,3 +53,8 @@ Quick notes
 * Use this library at your own risk.
 * If you want to contribute feel free to do so, I appreciate it!
 * Happy hunting on the markets!!
+
+LICENSE
+=======
+
+This library is under the terms of MIT License. Have a look at [LICENSE](https://github.com/gustavooferreira/oandaApi/blob/master/LICENCE.md) for more information.
