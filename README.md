@@ -45,6 +45,10 @@ NOTES
 
 This project is still in its __testing and documentation phase__, and because of that no release has yet been made.
 
+Quick notes
+-----------
+
+* This project started with [oanda/oandapy](https://github.com/oanda/oandapy) as a base project, but then was implemented in a different way, to easily support future oanda api versions.
 * Use it at your own risk.
 * If you want to contribute feel free to do so, I appreciate it!
 * Happy hunting on the markets!!
