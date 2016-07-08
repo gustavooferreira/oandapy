@@ -3,10 +3,11 @@
 # vim:fenc=utf-8
 
 """
-Test functions from OandaApi
+Test functions for oanda module
 """
 
 import unittest
+from oanda_api import oanda
 
 
 class TestOandaApi(unittest.TestCase):
@@ -14,7 +15,7 @@ class TestOandaApi(unittest.TestCase):
     """Test case docstring."""
 
     def setUp(self):
-        pass
+        a = oanda.APIv20(access_token="test")
 
     def tearDown(self):
         pass
