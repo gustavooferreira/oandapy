@@ -18,7 +18,7 @@ run:
 	python3 -m oanda_api.oanda $(env) $(token)
 
 find_todo:
-	@grep --color=always -nRe "#.*TODO" oanda_api || true
+	@grep --color=always -PnRe "(#|\"|\').*TODO" oanda_api || true
 
 find_fixme:
 	@grep --color=always -nRe "#.*FIXME" oanda_api || true
@@ -33,6 +33,8 @@ clean:
 	rm -rf oanda_api/api/__pycache__
 	rm -f oanda_api/entities/*.pyc
 	rm -rf oanda_api/entities/__pycache__
+	rm -f oanda_api/containers/*.pyc
+	rm -rf oanda_api/containers/__pycache__
 	rm -f oanda_api/enums/*.pyc
 	rm -rf oanda_api/enums/__pycache__
 	rm -f oanda_api/exceptions/*.pyc

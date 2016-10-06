@@ -48,7 +48,7 @@ class Transactions(object):
             type_list = "%2C".join(type_list)
             params["type"] = type_list
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
 
     def get_transition_details(self, account_id, transaction_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -66,7 +66,7 @@ class Transactions(object):
         endpoint = 'accounts/{0}/transactions{1}'.format(account_id,
                                                          transaction_id)
 
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_transaction_list(self, account_id, from_date, to_date,
                              type_list=None):
@@ -94,7 +94,7 @@ class Transactions(object):
             type_list = "%2C".join(type_list)
             params["type"] = type_list
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
 
     def get_transaction_list2(self, account_id, id):
         """Get a list of all Accounts authorized for the provided token.
@@ -115,4 +115,4 @@ class Transactions(object):
         params = {}
         params["id"] = id
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)

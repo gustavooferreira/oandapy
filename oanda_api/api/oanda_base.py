@@ -48,7 +48,7 @@ class Core(object):
         if headers:
             self._client.headers.update(headers)
 
-    def _request(self, endpoint, method='GET', params=None):
+    def request(self, endpoint, method='GET', params=None):
         """Returns OANDA's response as a dictionary.
 
         Args:

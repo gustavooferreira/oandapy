@@ -33,7 +33,7 @@ class Positions(object):
         Account."""
         endpoint = 'accounts/{0}/positions'.format(account_id)
 
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_open_positions(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -51,7 +51,7 @@ class Positions(object):
         Position in an Account that currently has a Trade opened for it."""
         endpoint = 'accounts/{0}/openPositions'.format(account_id)
 
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_position_details(self, account_id, instrument):
         """Get a list of all Accounts authorized for the provided token.
@@ -69,7 +69,7 @@ class Positions(object):
         The Position may by open or not."""
         endpoint = 'accounts/{0}/positions/{1}'.format(account_id, instrument)
 
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def close_position(self, account_id, instrument, long_units,
                        long_client_extensions, short_units,
@@ -104,4 +104,4 @@ class Positions(object):
         if long_client_extensions:
             params["longClientExtensions"] = long_client_extensions
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)

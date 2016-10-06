@@ -42,4 +42,4 @@ class Pricing(object):
         if since is not None:
             params["since"] = since
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)

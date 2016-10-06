@@ -49,7 +49,7 @@ class Trades(object):
         if before_id:
             params["beforeID"] = before_id
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
 
     def get_open_trades_list(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -65,7 +65,7 @@ class Trades(object):
         """
         """Get the list of open Trades for an Account"""
         endpoint = 'accounts/{0}/openTrades'.format(account_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_trade_details(self, account_id, trade_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -81,7 +81,7 @@ class Trades(object):
         """
         """Get the details of a specific Trade in an Account"""
         endpoint = 'accounts/{0}/trades/{1}'.format(account_id, trade_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def close_trade(self, account_id, trade_id, units):
         """Get a list of all Accounts authorized for the provided token.
@@ -101,7 +101,7 @@ class Trades(object):
         params = {}
         params["units"] = units
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)
 
     def update_client_extensions(self, account_id, trade_id, client_extensions):
         """Get a list of all Accounts authorized for the provided token.
@@ -122,7 +122,7 @@ class Trades(object):
         params = {}
         params["clientExtensions"] = client_extensions
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)
 
     def update_trade(self, account_id, trade_id, take_profit=None,
                      stop_loss=None, trailing_stop_loss=None):
@@ -153,4 +153,4 @@ class Trades(object):
         if trailing_stop_loss:
             params["trailingStopLoss"] = trailing_stop_loss
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)

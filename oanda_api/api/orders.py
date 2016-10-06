@@ -34,7 +34,7 @@ class Orders(object):
         if order:
             params["order"] = order
 
-        return self._api._request(endpoint, "POST", params=params)
+        return self._api.request(endpoint, "POST", params=params)
 
     def get_orders_list(self, account_id, ids, state=None, instrument=None,
                         count=None, before_id=None):
@@ -69,7 +69,7 @@ class Orders(object):
         if before_id:
             params["beforeID"] = before_id
 
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
 
     def get_pending_orders(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -85,7 +85,7 @@ class Orders(object):
         """
         """List all pending Orders in an Account"""
         endpoint = 'accounts/{0}/pendingOrders'.format(account_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_order_details(self, account_id, order_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -101,7 +101,7 @@ class Orders(object):
         """
         """Get details for a single Order in an Account"""
         endpoint = 'accounts/{0}/orders/{1}'.format(account_id, order_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def replace_order(self, account_id, order_id, order):
         """Get a list of all Accounts authorized for the provided token.
@@ -123,7 +123,7 @@ class Orders(object):
         params = {}
         params["order"] = order
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)
 
     def cancel_pending_order(self, account_id, order_id):
         """Get a list of all Accounts authorized for the provided token.
@@ -139,7 +139,7 @@ class Orders(object):
         """
         """Cancel a pending Order in an Account"""
         endpoint = 'accounts/{0}/orders/{1}/cancel'.format(account_id, order_id)
-        return self._api._request(endpoint, "PUT")
+        return self._api.request(endpoint, "PUT")
 
     def update_client_extensions(self, account_id, order_id, client_extensions,
                                  trade_client_extensions):
@@ -162,4 +162,4 @@ class Orders(object):
         params["clientExtensions"] = client_extensions
         params["tradeClientExtensions"] = trade_client_extensions
 
-        return self._api._request(endpoint, "PUT", params=params)
+        return self._api.request(endpoint, "PUT", params=params)

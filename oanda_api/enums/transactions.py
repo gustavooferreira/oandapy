@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 
@@ -704,7 +703,6 @@ class TransactionRejectReason(Enum):
                                                 that is being replaced.
     """
 
-
     INTERNAL_SERVER_ERROR = 1
     INSTRUMENT_PRICE_UNKNOWN = 2
     ACCOUNT_NOT_ACTIVE = 3
@@ -825,7 +823,6 @@ class TransactionRejectReason(Enum):
     CLIENT_EXTENSIONS_DATA_MISSING = 118
     REPLACING_ORDER_INVALID = 119
     REPLACING_TRADE_ID_INVALID = 120
-
 
 
 class TransactionFilter(Enum):

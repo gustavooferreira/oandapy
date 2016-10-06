@@ -29,7 +29,7 @@ class Account(object):
             OandaError: An error occurred while requesting the OANDA API.
         """
         endpoint = 'accounts'
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_account(self, account_id):
         """Get the full details for a single Account that a client has access
@@ -46,7 +46,7 @@ class Account(object):
             OandaError: An error occurred while requesting the OANDA API.
         """
         endpoint = 'accounts/{0}'.format(account_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_account_summary(self, account_id):
         """Get a summary for a single Account that a client has access to.
@@ -61,7 +61,7 @@ class Account(object):
             OandaError: An error occurred while requesting the OANDA API.
         """
         endpoint = 'accounts/{0}/summary'.format(account_id)
-        return self._api._request(endpoint)
+        return self._api.request(endpoint)
 
     def get_instruments(self, account_id, instruments=None):
         """Get the list of tradeable instruments for the given Account.
@@ -83,7 +83,7 @@ class Account(object):
         if instruments is not None:
             inst = "%2C".join(instruments)
             params["instruments"] = inst
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
 
     def set_account_settings(self, account_id, alias=None, margin_rate=None):
         """Set the client-configurable portions of an Account.
@@ -108,7 +108,7 @@ class Account(object):
         if margin_rate:
             params["marginRate"] = margin_rate
 
-        return self._api._request(endpoint, "PATCH", params=params)
+        return self._api.request(endpoint, "PATCH", params=params)
 
     def get_account_changes(self, account_id, since_transaction_id):
         """Endpoint used to poll an Account for its current state and changes
@@ -127,4 +127,4 @@ class Account(object):
         endpoint = 'accounts/{0}/changes'.format(account_id)
         params = {}
         params["sinceTransactionID"] = since_transaction_id
-        return self._api._request(endpoint, params=params)
+        return self._api.request(endpoint, params=params)
