@@ -8,8 +8,14 @@ Oanda API Library
 
 from .api.oanda_base import Core
 from .exceptions.exceptions import OandaError
-from .api.account import api_v20
 import sys
+
+from .api.account import Account
+from .api.orders import Orders
+from .api.positions import Positions
+from .api.pricing import Pricing
+from .api.trades import Trades
+from .api.transactions import Transactions
 
 
 class APIv20(Core):
@@ -30,12 +36,12 @@ class APIv20(Core):
         super(APIv20, self).__init__(environment, access_token, headers)
         self._version = "v3"
 
-        self.account = api_v20.Account(self)
-        self.orders = api_v20.Orders(self)
-        self.positions = api_v20.Positions(self)
-        self.pricing = api_v20.Pricing(self)
-        self.trades = api_v20.Trades(self)
-        self.transactions = api_v20.Transactions(self)
+        self.account = Account(self)
+        self.orders = Orders(self)
+        self.positions = Positions(self)
+        self.pricing = Pricing(self)
+        self.trades = Trades(self)
+        self.transactions = Transactions(self)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
