@@ -6,16 +6,27 @@
 Oanda API Library
 """
 
-from .oanda_base import Core
-from .exceptions import OandaError
-from . import api_v20
+from .api.oanda_base import Core
+from .exceptions.exceptions import OandaError
+from .api.account import api_v20
 import sys
 
 
 class APIv20(Core):
-    """ REST-V20"""
+    """Oanda REST API v20 Class
+
+    This class instanciates all endpoint classes for you
+    """
 
     def __init__(self, environment="practice", access_token=None, headers=None):
+        """Instantiates an instance of Oanda REST API class
+
+        Args:
+            environment: A string providing de environment for OANDA's API.
+            access_token: An optional string variable that specifies the access
+                token.
+            headers: An optional dict of parameters (Default: None)
+        """
         super(APIv20, self).__init__(environment, access_token, headers)
         self._version = "v3"
 

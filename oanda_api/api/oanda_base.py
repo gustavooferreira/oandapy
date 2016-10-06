@@ -8,7 +8,7 @@ Base module
 
 import json
 import requests
-from .exceptions import OandaError
+from ..exceptions.exceptions import OandaError
 
 
 class Core(object):

@@ -8,11 +8,13 @@ Exceptions
 
 
 class OandaError(Exception):
-    """Oanda error exception"""
+    """Oanda Error Exception Class"""
 
     def __init__(self, status_code, error_response):
-        # Those checks are necessary because Oanda API is buggy
+        """
+        These checks are necessary because right now, Oanda API is buggy
 
+        """
         if error_response:
             if "errorCode" in error_response:
                 code = error_response["errorCode"]

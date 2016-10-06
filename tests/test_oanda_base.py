@@ -1,22 +1,24 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
+#
+# Copyright © 2016 gustavoferreira
 
 """
-Test functions for oanda module
+
 """
 
 import unittest
-from unittest import mock
-from oanda_api import oanda
+from oanda_api import oanda_base
 
 
-class TestOandaApi(unittest.TestCase):
+class TestClass(unittest.TestCase):
 
     """Test case docstring."""
 
     def setUp(self):
-        a = oanda.APIv20(access_token="test")
+        a = oanda_base.Core("practice")
+        pass
 
     def tearDown(self):
         pass

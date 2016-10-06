@@ -1,5 +1,5 @@
-Overview
-=======
+OVERVIEW
+========
 
 [oandaApi](https://github.com/gustavooferreira/oandaApi) is a python3 wrapper for OANDA's REST API v20.
 
