@@ -77,8 +77,10 @@ class Core(object):
         else:
             request_args['data'] = json.dumps(params)
 
+        # verify set to False so I can mess around with proxy
+
         try:
-            response = func(url, **request_args)
+            response = func(url, verify=False, **request_args)
         except requests.RequestException as exc:
             print(str(exc))
 

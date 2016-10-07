@@ -5,6 +5,8 @@
 Account endpoint
 """
 
+from ..containers.account import GetAccountsContainer
+
 
 class Account(object):
     """Class holding account functions
@@ -29,7 +31,10 @@ class Account(object):
             OandaError: An error occurred while requesting the OANDA API.
         """
         endpoint = 'accounts'
-        return self._api.request(endpoint)
+        response = self._api.request(endpoint)
+        obj = GetAccountsContainer()
+        obj.deserialize(response)
+        return obj
 
     def get_account(self, account_id):
         """Get the full details for a single Account that a client has access

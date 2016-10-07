@@ -1,6 +1,6 @@
 # vim:ft=make
 #
-.PHONY: init test coverage run find_todo find_fixme clean
+.PHONY: init test coverage run find_todo find_fixme proxy_testing clean
 
 all: run
 
@@ -22,6 +22,12 @@ find_todo:
 
 find_fixme:
 	@grep --color=always -nRe "#.*FIXME" oanda_api || true
+
+proxy_testing:
+	set -e; \
+	export HTTP_PROXY="http://127.0.0.1:8080"; \
+	export HTTPS_PROXY="http://127.0.0.1:8080"; \
+	ipython
 
 clean:
 	rm -f .coverage

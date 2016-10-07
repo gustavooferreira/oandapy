@@ -15,6 +15,7 @@ class OandaError(Exception):
         These checks are necessary because right now, Oanda API is buggy
 
         """
+        # TODO: Contact Oanda to inform about this bug
         if error_response:
             if "errorCode" in error_response:
                 code = error_response["errorCode"]
