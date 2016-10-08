@@ -13,13 +13,13 @@ Contents:
 
   intro
   tutorial
-  oanda_api/modules
-  oanda_api/oanda_api.api
-  oanda_api/oanda_api.containers
-  oanda_api/oanda_api.entities
-  oanda_api/oanda_api.enums
-  oanda_api/oanda_api.exceptions
-  oanda_api/oanda_api
+  oandapy/modules
+  oandapy/oandapy.api
+  oandapy/oandapy.containers
+  oandapy/oandapy.entities
+  oandapy/oandapy.enums
+  oandapy/oandapy.exceptions
+  oandapy/oandapy
 
 This documentations is still under construction!!
 

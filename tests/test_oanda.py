@@ -8,7 +8,7 @@ Test functions for oanda module
 
 import unittest
 from unittest import mock
-from oanda_api import oanda
+from oandapy import oanda
 
 
 class TestOandaApi(unittest.TestCase):

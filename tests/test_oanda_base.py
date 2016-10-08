@@ -9,7 +9,7 @@
 """
 
 import unittest
-from oanda_api.api import oanda_base
+from oandapy.api import oanda_base
 
 
 class TestClass(unittest.TestCase):

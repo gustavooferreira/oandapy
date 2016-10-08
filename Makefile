@@ -12,16 +12,16 @@ test:
 	# python3 -m nose tests.test_oanda
 
 coverage:
-	python3 -m nose --with-coverage --cover-erase --cover-package=oanda_api tests.test_oanda
+	python3 -m nose --with-coverage --cover-erase --cover-package=oandapy tests.test_oanda
 
 run:
-	python3 -m oanda_api.oanda $(env) $(token)
+	python3 -m oandapy.oanda $(env) $(token)
 
 find_todo:
-	@grep --color=always -PnRe "(#|\"|\').*TODO" oanda_api || true
+	@grep --color=always -PnRe "(#|\"|\').*TODO" oandapy || true
 
 find_fixme:
-	@grep --color=always -nRe "#.*FIXME" oanda_api || true
+	@grep --color=always -nRe "#.*FIXME" oandapy || true
 
 proxy_testing:
 	set -e; \
@@ -33,15 +33,15 @@ clean:
 	rm -f .coverage
 	rm -f tests/*.pyc
 	rm -rf tests/__pycache__
-	rm -f oanda_api/*.pyc
-	rm -rf oanda_api/__pycache__
-	rm -f oanda_api/api/*.pyc
-	rm -rf oanda_api/api/__pycache__
-	rm -f oanda_api/entities/*.pyc
-	rm -rf oanda_api/entities/__pycache__
-	rm -f oanda_api/containers/*.pyc
-	rm -rf oanda_api/containers/__pycache__
-	rm -f oanda_api/enums/*.pyc
-	rm -rf oanda_api/enums/__pycache__
-	rm -f oanda_api/exceptions/*.pyc
-	rm -rf oanda_api/exceptions/__pycache__
+	rm -f oandapy/*.pyc
+	rm -rf oandapy/__pycache__
+	rm -f oandapy/api/*.pyc
+	rm -rf oandapy/api/__pycache__
+	rm -f oandapy/entities/*.pyc
+	rm -rf oandapy/entities/__pycache__
+	rm -f oandapy/containers/*.pyc
+	rm -rf oandapy/containers/__pycache__
+	rm -f oandapy/enums/*.pyc
+	rm -rf oandapy/enums/__pycache__
+	rm -f oandapy/exceptions/*.pyc
+	rm -rf oandapy/exceptions/__pycache__

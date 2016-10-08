@@ -1,7 +1,7 @@
 OVERVIEW
 ========
 
-[oandaApi](https://github.com/gustavooferreira/oandaApi) is a python3 wrapper for OANDA's REST API v20.
+[oandapy](https://github.com/gustavooferreira/oandapy) is a python3 wrapper for OANDA's REST API v20.
 
 This library currently implements the features released under [version 3.0.1](http://developer.oanda.com/rest-live-v20/release-notes/) of OANDA's REST API.
 
@@ -14,10 +14,10 @@ Right now, this library has not yet been pushed to pypi, so as of now you can't 
 
 For now you will have to clone this repository and put it on your __PYTHONPATH__.
 ```
-export PYTHONPATH="${PYTHONPATH}:/path/to/oandaApi"
+export PYTHONPATH="${PYTHONPATH}:/path/to/oandapy"
 ```
 
-oandaApi depends on _python-requests_, which you can install using pip and the requirements.txt file like this:
+oandapy depends on _python-requests_, which you can install using pip and the requirements.txt file like this:
 ```
 pip install -r requirements.txt
 ```
@@ -79,4 +79,4 @@ Quick notes
 LICENSE
 =======
 
-This library is under the terms of MIT License. Have a look at [LICENSE](https://github.com/gustavooferreira/oandaApi/blob/master/LICENCE.md) for more information.
+This library is under the terms of MIT License. Have a look at [LICENSE](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md) for more information.
