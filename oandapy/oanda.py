@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 
@@ -42,17 +41,3 @@ class APIv20(Core):
         self.pricing = Pricing(self)
         self.trades = Trades(self)
         self.transactions = Transactions(self)
-
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: " + sys.argv[0] + " environment access_token")
-    else:
-        environment = sys.argv[1]
-        access_token = sys.argv[2]
-        con = APIv20(environment=environment, access_token=access_token)
-
-        try:
-            result = con.account.get_accounts()
-            print("Result: " + str(result))
-        except OandaError as exc:
-            print(str(exc))
