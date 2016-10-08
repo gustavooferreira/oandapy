@@ -5,7 +5,7 @@
 Account endpoint
 """
 
-from ..containers.account import GetAccountsContainer
+from oandapy.containers.account import GetAccountsContainer
 
 
 class Account(object):
@@ -31,7 +31,7 @@ class Account(object):
             OandaError: An error occurred while requesting the OANDA API.
         """
         endpoint = 'accounts'
-        response = self._api.request(endpoint)
+        response = self._api.request(endpoint, "GET")
         obj = GetAccountsContainer()
         obj.deserialize(response)
         return obj

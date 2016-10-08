@@ -1,67 +1,64 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
-#
 
-"""
-Base module
+"""Base module where the Core class is created.
+
+This module consists of a base class that is not meant to be used on its own.
+
 """
 
 import json
 import requests
-from ..exceptions.exceptions import OandaError
+from oandapy.exceptions.exceptions import OandaError
 
 
 class Core(object):
-    """Core Abstract Class
+    """Core Abstract Class to be inherited.
 
     This class is not meant to be called on its own!
+
     """
 
-    def __init__(self, environment, access_token=None, headers=None):
-        """Instantiates an instance of Core Abstract object.
+    def __init__(self, environment, access_token=None):
+        """Core Abstract object.
 
         Args:
-            environment: A string providing de environment for OANDA's API.
-            access_token: An optional string variable that specifies the access
-                token.
-            headers: An optional dict of parameters (Default: None)
+            environment (str): Provides the environment for OANDA's API.
+            access_token (str): Specifies the access token.
+
         """
         envs = {"practice": "https://api-fxpractice.oanda.com",
                 "live": "https://api-fxtrade.oanda.com"}
 
-        assert environment in envs, "Environment '{0}' does not " \
-            "exist".format(environment)
+        assert environment in envs, ("Environment '{0}' does not "
+                                     "exist!".format(environment))
         self._api_url = envs[environment]
-
-        self._version = ""
 
         self._client = requests.Session()
         self._client.headers['Content-Type'] = "application/json"
 
-        self._access_token = access_token
         if access_token:
             self._client.headers['Authorization'] = 'Bearer ' + access_token
         else:
-            # TODO: raise ERROR!!
-            pass
+            assert access_token is not None, ("Access token needs to be defined"
+                                              " for authorization purpose.")
 
-        if headers:
-            self._client.headers.update(headers)
-
-    def request(self, endpoint, method='GET', params=None):
-        """Returns OANDA's response as a dictionary.
+    def request(self, endpoint, method, params=None):
+        """Requests data from Oanda API.
 
         Args:
-            endpoint: A string with the url for OANDA API.
-            method: An optional string variable that specifies the method to be
-            used for accessing data (default: GET).
-            params: An optional dict of parameters (Default: None).
+            endpoint (str): URL for Oanda API endpoint.
+            method (str): Specifies the method to be used on the request.
+            params (dict, optional): Specifies parameters to be sent with the
+                request. Defaults to None.
 
         Returns:
-            A dict with the response.
+            dict: Data retrieved for specified endpoint.
 
         Raises:
-            OandaError: An error occurred while requesting the OANDA API.
+            RequestException: An error thrown by Requests library.
+            ValueError: An error thrown by json parser, if JSON decoding fails.
+            OandaError: An error occurred while requesting the Oanda API.
 
         """
         url = "/".join((self._api_url, self._version, endpoint))
@@ -77,25 +74,13 @@ class Core(object):
         else:
             request_args['data'] = json.dumps(params)
 
+        # This function might throw a RequestException
+        response = func(url, **request_args)
 
-        try:
-            # verify set to False so I can mess around with proxy
-            # response = func(url, verify=False, **request_args)
-            response = func(url, **request_args)
-        except requests.RequestException as exc:
-            print(str(exc))
-
-        try:
-            content = response.json()
-        except ValueError as exc:
-            raise OandaError(response.status_code, None) from exc
+        # This function might throw a ValueError Exception
+        content = response.json()
 
         if response.status_code >= 400:
             raise OandaError(response.status_code, content)
 
         return content
-
-    def __str__(self):
-        msg = 'Core = ["api_url" = {0}; "version" = {1}; "access_token" = {2}]'
-        return msg.format(self._api_url, self._version or None,
-                          self._access_token)
