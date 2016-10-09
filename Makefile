@@ -1,6 +1,6 @@
 # vim:ft=make
 #
-.PHONY: init test coverage run find_todo find_fixme proxy_testing clean
+.PHONY: init test coverage run find_todo find_fixme proxy_testing count clean
 
 all: run
 
@@ -28,6 +28,9 @@ proxy_testing:
 	export HTTP_PROXY="http://127.0.0.1:8080"; \
 	export HTTPS_PROXY="http://127.0.0.1:8080"; \
 	ipython
+
+count:
+	@find . -name '*.py' | xargs wc -l
 
 clean:
 	rm -f .coverage

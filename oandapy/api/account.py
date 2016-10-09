@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 
-"""
-Account endpoint
-"""
+"""Account endpoints"""
 
 from oandapy.containers.account import GetAccountsContainer
 
 
 class Account(object):
-    """Class holding account functions
+    """Class holding account functions.
 
     Account
         Docs: http://developer.oanda.com/rest-live-v20/account-ep/
+
     """
 
     def __init__(self, api):
@@ -25,11 +24,15 @@ class Account(object):
             This function takes no arguments.
 
         Returns:
-            A dict with all accounts ids and tags.
+            dict: All accounts ids and tags.
 
         Raises:
-            OandaError: An error occurred while requesting the OANDA API.
+            RequestException: An error thrown by Requests library.
+            ValueError: An error thrown by json parser, if JSON decoding fails.
+            OandaError: An error occurred while requesting the Oanda API.
+
         """
+
         endpoint = 'accounts'
         response = self._api.request(endpoint, "GET")
         obj = GetAccountsContainer()
@@ -38,18 +41,24 @@ class Account(object):
 
     def get_account(self, account_id):
         """Get the full details for a single Account that a client has access
-        to. Full pending Order, open Trade and open Position representations
+        to.
+
+        Full pending Order, open Trade and open Position representations
         are provided.
 
         Args:
-            account_id: A string providing an account ID.
+            account_id (str): Account ID.
 
         Returns:
-            A dict with full account details.
+            dict: Full account details.
 
         Raises:
-            OandaError: An error occurred while requesting the OANDA API.
+            RequestException: An error thrown by Requests library.
+            ValueError: An error thrown by json parser, if JSON decoding fails.
+            OandaError: An error occurred while requesting the Oanda API.
+
         """
+
         endpoint = 'accounts/{0}'.format(account_id)
         return self._api.request(endpoint)
 

@@ -1,30 +1,27 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 
-"""
-Account Containers
-"""
+"""Account Containers"""
 
-from ..entities.account import AccountProperties
+from oandapy.entities.account import AccountProperties
+from oandapy.entities.account import Account
 
 
 class GetAccountsContainer(object):
 
-    """TODO
-    """
+    """Container for function get_accounts."""
 
     def __init__(self):
-        """Constructor:"""
-        """The list of Accounts the client is authorized to access and their
-        associated properties.
-        """
         self._accounts = None
 
     def serialize(self):
-        """TODO: Docstring for serialize.
-        Returns: TODO
+        """Serialize container object to dict.
+
+        Returns:
+            str: Representation of container state.
 
         """
+
         result = dict()
         if self._accounts is not None:
             result['accounts'] = []
@@ -34,20 +31,21 @@ class GetAccountsContainer(object):
         return result
 
     def deserialize(self, jsonObj):
-        """TODO: Docstring for deserialize.
+        """Deserialize dict to container object."""
 
-        It still applies the properties constrains if needed!
-        When resolving an object, call it deserialize method!
-        """
         if "accounts" in jsonObj:
             self._accounts = []
-            for account in jsonObj["accounts"]:
+            for account in jsonObj['accounts']:
                 temp = AccountProperties()
                 temp.deserialize(account)
                 self._accounts.append(temp)
 
     @property
     def accounts(self):
+        """list: The list of Accounts the client is authorized to access and
+        their associated properties.
+
+        """
         return self._accounts
 
     @accounts.setter
@@ -56,3 +54,57 @@ class GetAccountsContainer(object):
 
     def __str__(self):
         return "GetAccountsContainer : [ accounts = {} ]".format(self._accounts)
+
+
+class GetAccountContainer(object):
+
+    """Container for function get_account."""
+
+    def __init__(self):
+        self._account = None
+        self._lastTransactionID = None
+
+    def serialize(self):
+        """Serialize container object to dict.
+
+        Returns:
+            str: Representation of container state.
+
+        """
+
+        result = dict()
+        if self._account is not None:
+            result['account'] = self._account.serialize()
+
+        if self._lastTransactionID is not None:
+            result['lastTransactionID'] = self._lastTransactionID
+
+        return result
+
+    def deserialize(self, jsonObj):
+        """Deserialize dict to container object."""
+
+        if "account" in jsonObj:
+            self._account = Account()
+            self._account.deserialize(jsonObj['account'])
+
+        if "lastTransactionID" in jsonObj:
+            self._lastTransactionID = jsonObj['lastTransactionID']
+
+    @property
+    def account(self):
+        """Account: The full details of the requested Account."""
+        return self._account
+
+    @account.setter
+    def account(self, account):
+        self._account = account
+
+    @property
+    def lastTransactionID(self):
+        """str: The unique Transaction identifier within each Account."""
+        return self._lastTransactionID
+
+    @lastTransactionID.setter
+    def lastTransactionID(self, lastTransactionID):
+        self._lastTransactionID = lastTransactionID
