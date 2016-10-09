@@ -113,7 +113,7 @@ class AccountProperties(object):
             self._id = jsonObj['id']
 
         if "mt4AccountID" in jsonObj:
-            self._mt4AccountID = jsonObj['mt4AccountID']
+            self._mt4AccountID = int(jsonObj['mt4AccountID'])
 
         if "tags" in jsonObj:
             self._tags = jsonObj['tags']

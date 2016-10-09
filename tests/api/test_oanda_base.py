@@ -1,24 +1,21 @@
-#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
-#
-# Copyright © 2016 gustavoferreira
 
 """
 
 """
 
 import unittest
-from oandapy.api import oanda_base
+from unittest import mock
+from oandapy.api.oanda_base import Core
 
 
-class TestClass(unittest.TestCase):
+class TestCore(unittest.TestCase):
 
     """Test case docstring."""
 
     def setUp(self):
-        a = oanda_base.Core("practice")
-        pass
+        obj = Core(environment="practice", access_token="token")
 
     def tearDown(self):
         pass

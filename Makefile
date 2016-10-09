@@ -30,21 +30,10 @@ proxy_testing:
 	ipython
 
 count:
-	@find . -name '*.py' | xargs wc -l
+	@find . -type f \( -name "*.py" -o -name "*.rst" \) | xargs wc -l
 
 clean:
 	rm -f .coverage
-	rm -f tests/*.pyc
-	rm -rf tests/__pycache__
-	rm -f oandapy/*.pyc
-	rm -rf oandapy/__pycache__
-	rm -f oandapy/api/*.pyc
-	rm -rf oandapy/api/__pycache__
-	rm -f oandapy/entities/*.pyc
-	rm -rf oandapy/entities/__pycache__
-	rm -f oandapy/containers/*.pyc
-	rm -rf oandapy/containers/__pycache__
-	rm -f oandapy/enums/*.pyc
-	rm -rf oandapy/enums/__pycache__
-	rm -f oandapy/exceptions/*.pyc
-	rm -rf oandapy/exceptions/__pycache__
+	find . -type d -name '__pycache__' | xargs rm -rf
+	find . -type f -name '*.pyc' | xargs rm -f
+	find . -type d -name '*.ropeproject' | xargs rm -rf
