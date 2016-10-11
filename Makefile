@@ -28,3 +28,6 @@ clean:
 	find . -type d -name '__pycache__' | xargs rm -rf
 	find . -type f -name '*.pyc' | xargs rm -f
 	find . -type d -name '*.ropeproject' | xargs rm -rf
+
+generate_docs:
+	@sphinx-apidoc -f -o doc/oandapy oandapy
