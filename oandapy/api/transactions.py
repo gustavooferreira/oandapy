@@ -113,6 +113,6 @@ class Transactions(object):
         endpoint = 'accounts/{0}/transactions/sinceid'.format(account_id)
 
         params = {}
-        params["id"] = id
+        params["id"] = aid
 
         return self._api.request(endpoint, params=params)
