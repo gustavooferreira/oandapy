@@ -1,5 +1,11 @@
+Oanda REST-v20 API wrapper
+==========================
+
+[![Build Status](https://travis-ci.org/gustavooferreira/oandapy.svg?branch=master)](https://travis-ci.org/gustavooferreira/oandapy)
+
+
 OVERVIEW
-========
+--------
 
 __NOTE__: DO NOT USE THIS LIBRARY! It is under heavy development with major changes!
 
@@ -12,7 +18,7 @@ Head over to [OANDA's REST API v20 docs](http://developer.oanda.com/rest-live-v2
 __NOTE__: This library requires at least python 3.4 because it used Enum classes.
 
 INSTALL
-=======
+-------
 
 Right now, this library has not yet been pushed to pypi, so as of now you can't use pip to install it. (But will be soon in pypi)
 
@@ -37,7 +43,7 @@ pip install requests
 __NOTE__: You should use pip3 to install requests's python3 library.
 
 TEST
-====
+----
 
 You can do a quick test by typing
 
@@ -51,7 +57,7 @@ __NOTE:__ don't use your live account's token for this test, because it will get
 
 
 USAGE
-=====
+-----
 
 Import the oanda_api module and create an instance with your account token:
 ```
@@ -68,12 +74,11 @@ except oanda.OandaError as exc:
 ```
 
 NOTES
-=====
+-----
 
 This project is still in its __testing and documentation phase__, and because of that no release has yet been made.
 
-Quick notes
------------
+### Quick notes
 
 * Oanda API REST-v20 is still under development, some functionality have not yet been implemented (Streaming, Pricing History, Forex Labs), but I will keep an eye on it, and as soon as it gets implemented I will update this library accordingly.
 * Use this library at your own risk.
@@ -81,6 +86,6 @@ Quick notes
 * Happy hunting on the markets!!
 
 LICENSE
-=======
+-------
 
 This library is under the terms of MIT License. Have a look at [LICENSE](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md) for more information.
