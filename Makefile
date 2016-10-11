@@ -11,7 +11,8 @@ test:
 	nosetests
 
 coverage:
-	python3 -m nose --with-coverage --cover-erase --cover-package=oandapy tests.test_oanda
+	# @python3 -m nose --with-coverage --cover-erase --cover-package=oandapy tests.test_oanda || true
+	coverage run --source=oandapy make test
 
 find_todo:
 	@grep --color=always -PnRe "(#|\"|\').*TODO" oandapy || true
@@ -24,6 +25,7 @@ count:
 
 clean:
 	rm -f .coverage
+	rm -rf oandapy.egg-info
 	find . -type d -name '__pycache__' | xargs rm -rf
 	find . -type f -name '*.pyc' | xargs rm -f
 	find . -type d -name '*.ropeproject' | xargs rm -rf

@@ -2,6 +2,7 @@ Oanda REST-v20 API wrapper
 ==========================
 
 [![Build Status](https://travis-ci.org/gustavooferreira/oandapy.svg?branch=master)](https://travis-ci.org/gustavooferreira/oandapy)
+[![Coverage Status](https://coveralls.io/repos/github/gustavooferreira/oandapy/badge.svg?branch=master)](https://coveralls.io/github/gustavooferreira/oandapy?branch=master)
 [![Code Health](https://landscape.io/github/gustavooferreira/oandapy/master/landscape.svg?style=flat)](https://landscape.io/github/gustavooferreira/oandapy/master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md)
 
