@@ -6,7 +6,6 @@ Test functions for oanda module
 """
 
 import unittest
-from unittest import mock
 from oandapy import oanda
 
 
@@ -16,6 +15,7 @@ class TestOandaApi(unittest.TestCase):
 
     def setUp(self):
         a = oanda.APIv20(access_token="test")
+        self.assertIsNotNone(a)
 
     def tearDown(self):
         pass

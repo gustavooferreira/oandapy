@@ -6,7 +6,6 @@
 """
 
 import unittest
-from unittest import mock
 from oandapy.api.oanda_base import Core
 
 
@@ -16,6 +15,7 @@ class TestCore(unittest.TestCase):
 
     def setUp(self):
         obj = Core(environment="practice", access_token="token")
+        self.assertIsNotNone(obj)
 
     def tearDown(self):
         pass
