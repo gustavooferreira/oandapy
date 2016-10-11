@@ -2,6 +2,7 @@ Oanda REST-v20 API wrapper
 ==========================
 
 [![Build Status](https://travis-ci.org/gustavooferreira/oandapy.svg?branch=master)](https://travis-ci.org/gustavooferreira/oandapy)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
 __NOTE__: DO NOT USE THIS LIBRARY!
 It is under heavy development and still lacks testing suits. It is also partially documented.
