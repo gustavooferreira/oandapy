@@ -9,7 +9,6 @@ init:
 
 test:
 	nosetests
-	# python3 -m nose tests.test_oanda
 
 coverage:
 	python3 -m nose --with-coverage --cover-erase --cover-package=oandapy tests.test_oanda
