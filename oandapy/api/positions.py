@@ -18,6 +18,9 @@ class Positions(object):
 
     def get_positions(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
+        List all Positions for an Account. The Positions returned are for
+        every instrument that has had a position during the lifetime of an a
+        Account.
 
         Args:
             This function takes no arguments.
@@ -28,15 +31,14 @@ class Positions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """List all Positions for an Account. The Positions returned are for
-        every instrument that has had a position during the lifetime of an a
-        Account."""
         endpoint = 'accounts/{0}/positions'.format(account_id)
 
         return self._api.request(endpoint)
 
     def get_open_positions(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
+        List all open Positions for an Account. An open Position is a
+        Position in an Account that currently has a Trade opened for it.
 
         Args:
             This function takes no arguments.
@@ -47,14 +49,14 @@ class Positions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """List all open Positions for an Account. An open Position is a
-        Position in an Account that currently has a Trade opened for it."""
         endpoint = 'accounts/{0}/openPositions'.format(account_id)
 
         return self._api.request(endpoint)
 
     def get_position_details(self, account_id, instrument):
         """Get a list of all Accounts authorized for the provided token.
+        Get the details of a single Instrument’s Position in an Account.
+        The Position may by open or not.
 
         Args:
             This function takes no arguments.
@@ -65,8 +67,6 @@ class Positions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get the details of a single Instrument’s Position in an Account.
-        The Position may by open or not."""
         endpoint = 'accounts/{0}/positions/{1}'.format(account_id, instrument)
 
         return self._api.request(endpoint)
@@ -75,6 +75,8 @@ class Positions(object):
                        long_client_extensions, short_units,
                        short_client_extensions):
         """Get a list of all Accounts authorized for the provided token.
+        Closeout the open Position for a specific instrument in an
+        Account.
 
         Args:
             This function takes no arguments.
@@ -85,8 +87,6 @@ class Positions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Closeout the open Position for a specific instrument in an
-        Account."""
         endpoint = 'accounts/{0}/positions/{1}/close'.format(account_id,
                                                              instrument)
 

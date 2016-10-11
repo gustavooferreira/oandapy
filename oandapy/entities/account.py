@@ -119,16 +119,17 @@ class AccountProperties(object):
             self._tags = jsonObj['tags']
 
     @property
-    def id(self):
+    def aid(self):
         """str: The string representation of an Account Identifier.
                 Format: "-"-delimited string with format
                 "{siteID}-{divisionID}-{userID}-{accountNumber}"
+                The name aid was chosen because of naming conflicts in python.
         """
         return self._id
 
-    @id.setter
-    def id(self, id):
-        self._id = id
+    @aid.setter
+    def aid(self, aid):
+        self._id = aid
 
     @property
     def mt4AccountID(self):

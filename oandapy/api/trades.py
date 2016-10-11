@@ -19,6 +19,7 @@ class Trades(object):
     def get_trades(self, account_id, ids, state=None, instrument=None,
                    count=None, before_id=None):
         """Get a list of all Accounts authorized for the provided token.
+        Get a list of Trades for an Account
 
         Args:
             This function takes no arguments.
@@ -29,7 +30,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get a list of Trades for an Account"""
         endpoint = 'accounts/{0}/trades'.format(account_id)
 
         params = {}
@@ -53,6 +53,7 @@ class Trades(object):
 
     def get_open_trades_list(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
+        Get the list of open Trades for an Account
 
         Args:
             This function takes no arguments.
@@ -63,7 +64,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get the list of open Trades for an Account"""
         endpoint = 'accounts/{0}/openTrades'.format(account_id)
         return self._api.request(endpoint)
 
@@ -85,6 +85,7 @@ class Trades(object):
 
     def close_trade(self, account_id, trade_id, units):
         """Get a list of all Accounts authorized for the provided token.
+        Close (partially or fully) a specific open Trade in an Account
 
         Args:
             This function takes no arguments.
@@ -95,7 +96,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Close (partially or fully) a specific open Trade in an Account"""
         endpoint = 'accounts/{0}/trades/{1}/close'.format(account_id, trade_id)
 
         params = {}
@@ -105,6 +105,7 @@ class Trades(object):
 
     def update_client_extensions(self, account_id, trade_id, client_extensions):
         """Get a list of all Accounts authorized for the provided token.
+        Update the Client Extensions for a Trade
 
         Args:
             This function takes no arguments.
@@ -115,7 +116,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Update the Client Extensions for a Trade"""
         endpoint = 'accounts/{0}/trades/{1}/clientExtensions'.format(account_id,
                                                                      trade_id)
 
@@ -127,6 +127,8 @@ class Trades(object):
     def update_trade(self, account_id, trade_id, take_profit=None,
                      stop_loss=None, trailing_stop_loss=None):
         """Get a list of all Accounts authorized for the provided token.
+        Create, replace and cancel a Trade’s dependent Orders (Take Profit,
+        Stop Loss and Trailing Stop Loss) through the Trade itself
 
         Args:
             This function takes no arguments.
@@ -137,8 +139,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Create, replace and cancel a Trade’s dependent Orders (Take Profit,
-        Stop Loss and Trailing Stop Loss) through the Trade itself"""
         endpoint = 'accounts/{0}/trades/{1}/orders'.format(account_id,
                                                            trade_id)
 

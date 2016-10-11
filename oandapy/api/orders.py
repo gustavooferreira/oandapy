@@ -18,6 +18,7 @@ class Orders(object):
 
     def create_order(self, account_id, order):
         """Get a list of all Accounts authorized for the provided token.
+        Create an order for an Account
 
         Args:
             This function takes no arguments.
@@ -28,7 +29,6 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Create an order for an Account"""
         endpoint = 'accounts/{0}/orders'.format(account_id)
         params = {}
         if order:
@@ -39,6 +39,7 @@ class Orders(object):
     def get_orders_list(self, account_id, ids, state=None, instrument=None,
                         count=None, before_id=None):
         """Get a list of all Accounts authorized for the provided token.
+        Get a list of Orders for an Account
 
         Args:
             This function takes no arguments.
@@ -49,7 +50,6 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get a list of Orders for an Account"""
         endpoint = 'accounts/{0}/orders'.format(account_id)
 
         params = {}
@@ -73,6 +73,7 @@ class Orders(object):
 
     def get_pending_orders(self, account_id):
         """Get a list of all Accounts authorized for the provided token.
+        List all pending Orders in an Account
 
         Args:
             This function takes no arguments.
@@ -83,12 +84,12 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """List all pending Orders in an Account"""
         endpoint = 'accounts/{0}/pendingOrders'.format(account_id)
         return self._api.request(endpoint)
 
     def get_order_details(self, account_id, order_id):
         """Get a list of all Accounts authorized for the provided token.
+        Get details for a single Order in an Account
 
         Args:
             This function takes no arguments.
@@ -99,12 +100,13 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get details for a single Order in an Account"""
         endpoint = 'accounts/{0}/orders/{1}'.format(account_id, order_id)
         return self._api.request(endpoint)
 
     def replace_order(self, account_id, order_id, order):
         """Get a list of all Accounts authorized for the provided token.
+        Replace an Order in an Account by simultaneously cancelling it and
+        creating a replacement Order
 
         Args:
             This function takes no arguments.
@@ -114,9 +116,6 @@ class Orders(object):
 
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
-        """
-        """Replace an Order in an Account by simultaneously cancelling it and
-        creating a replacement Order
         """
         endpoint = 'accounts/{0}/orders/{1}'.format(account_id, order_id)
 
@@ -127,6 +126,7 @@ class Orders(object):
 
     def cancel_pending_order(self, account_id, order_id):
         """Get a list of all Accounts authorized for the provided token.
+        Cancel a pending Order in an Account
 
         Args:
             This function takes no arguments.
@@ -137,13 +137,13 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Cancel a pending Order in an Account"""
         endpoint = 'accounts/{0}/orders/{1}/cancel'.format(account_id, order_id)
         return self._api.request(endpoint, "PUT")
 
     def update_client_extensions(self, account_id, order_id, client_extensions,
                                  trade_client_extensions):
         """Get a list of all Accounts authorized for the provided token.
+        Update the Client Extensions for an Order in an Account
 
         Args:
             This function takes no arguments.
@@ -154,7 +154,6 @@ class Orders(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Update the Client Extensions for an Order in an Account"""
         endpoint = 'accounts/{0}/orders/{1}/clientExtensions'.format(account_id,
                                                                      order_id)
 

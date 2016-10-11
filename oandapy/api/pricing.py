@@ -32,8 +32,6 @@ class Pricing(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """ Get pricing information for a specified list of Instruments within
-        an Account."""
         endpoint = 'accounts/{0}/pricing'.format(account_id)
         inst = "%2C".join(instruments)
         params = {}

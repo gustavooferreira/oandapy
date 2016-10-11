@@ -19,6 +19,8 @@ class Transactions(object):
     def get_transactions(self, account_id, from_date=None, to_date=None,
                          page_size=None, type_list=None):
         """Get a list of all Accounts authorized for the provided token.
+        Get a list of Transactions pages that satisfy a time-based
+        Transaction query.
 
         Args:
             This function takes no arguments.
@@ -29,8 +31,6 @@ class Transactions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get a list of Transactions pages that satisfy a time-based
-        Transaction query."""
         endpoint = 'accounts/{0}/transactions'.format(account_id)
 
         params = {}
@@ -52,6 +52,7 @@ class Transactions(object):
 
     def get_transition_details(self, account_id, transaction_id):
         """Get a list of all Accounts authorized for the provided token.
+        Get the details of a single Account Transaction.
 
         Args:
             This function takes no arguments.
@@ -62,7 +63,6 @@ class Transactions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get the details of a single Account Transaction."""
         endpoint = 'accounts/{0}/transactions{1}'.format(account_id,
                                                          transaction_id)
 
@@ -71,6 +71,8 @@ class Transactions(object):
     def get_transaction_list(self, account_id, from_date, to_date,
                              type_list=None):
         """Get a list of all Accounts authorized for the provided token.
+        Get a range of Transactions for an Account based on the Transaction
+        IDs.
 
         Args:
             This function takes no arguments.
@@ -81,8 +83,6 @@ class Transactions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get a range of Transactions for an Account based on the Transaction
-        IDs."""
         endpoint = 'accounts/{0}/transactions/idrange'.format(account_id)
 
         params = {}
@@ -98,6 +98,8 @@ class Transactions(object):
 
     def get_transaction_list2(self, account_id, id):
         """Get a list of all Accounts authorized for the provided token.
+        Get a range of Transactions for an Account starting at (but not
+        including) a provided Transaction ID.
 
         Args:
             This function takes no arguments.
@@ -108,8 +110,6 @@ class Transactions(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get a range of Transactions for an Account starting at (but not
-        including) a provided Transaction ID."""
         endpoint = 'accounts/{0}/transactions/sinceid'.format(account_id)
 
         params = {}
