@@ -69,6 +69,7 @@ class Trades(object):
 
     def get_trade_details(self, account_id, trade_id):
         """Get a list of all Accounts authorized for the provided token.
+        Get the details of a specific Trade in an Account
 
         Args:
             This function takes no arguments.
@@ -79,7 +80,6 @@ class Trades(object):
         Raises:
             OandaError: An error occurred while requesting the OANDA API.
         """
-        """Get the details of a specific Trade in an Account"""
         endpoint = 'accounts/{0}/trades/{1}'.format(account_id, trade_id)
         return self._api.request(endpoint)
 

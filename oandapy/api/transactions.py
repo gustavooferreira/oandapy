@@ -96,7 +96,7 @@ class Transactions(object):
 
         return self._api.request(endpoint, params=params)
 
-    def get_transaction_list2(self, account_id, id):
+    def get_transaction_list2(self, account_id, aid):
         """Get a list of all Accounts authorized for the provided token.
         Get a range of Transactions for an Account starting at (but not
         including) a provided Transaction ID.
