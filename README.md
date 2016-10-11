@@ -2,7 +2,7 @@ Oanda REST-v20 API wrapper
 ==========================
 
 [![Build Status](https://travis-ci.org/gustavooferreira/oandapy.svg?branch=master)](https://travis-ci.org/gustavooferreira/oandapy)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md)
 
 __NOTE__: DO NOT USE THIS LIBRARY!
 It is under heavy development and still lacks testing suits. It is also partially documented.
@@ -71,9 +71,3 @@ NOTES
 * Use this library at your own risk.
 * If you want to contribute feel free to do so, I appreciate it!
 * Happy hunting on the markets!!
-
-
-LICENSE
--------
-
-This library is under the terms of MIT License. Have a look at [LICENSE](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md) for more information.
