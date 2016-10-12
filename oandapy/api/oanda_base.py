@@ -9,7 +9,7 @@ This module consists of a base class that is not meant to be used on its own.
 
 import json
 import requests
-from oandapy.exceptions.exceptions import OandaError
+from oandapy.exceptions import OandaError
 
 
 class Core(object):

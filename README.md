@@ -19,7 +19,7 @@ This library currently implements the features released under [version 3.0.1](ht
 
 Head over to [OANDA's REST API v20 docs](http://developer.oanda.com/rest-live-v20/introduction/) to go through their documentation.
 
-__NOTE__: This library requires at least python 3.4 because it used Enum classes.
+__NOTE__: This library requires at least python 3.4 because it uses Enum classes.
 
 
 INSTALL
@@ -51,18 +51,21 @@ __NOTE__: You should use pip3 to install requests's python3 library.
 USAGE
 -----
 
-Import the oanda_api module and create an instance with your account token:
+Import the oandapy module and create an instance with your account token:
 ```
-from oanda_api import oanda
+from oandapy import oanda
+from oandapy.exceptions import OandaError
 
 access_token = ""
 con = oanda.APIv20(environment="practice", access_token=access_token)
 
 try:
-    result = con.account.get_accounts()
-    print("Result: " + str(result))
+  result = con.account.get_accounts()
+
+  for acc in result.accounts:
+    print(acc.aid)
 except oanda.OandaError as exc:
-    print(str(exc))
+  print(str(exc))
 ```
 
 
