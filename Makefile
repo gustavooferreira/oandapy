@@ -1,6 +1,6 @@
 # vim:ft=make
 #
-.PHONY: all init test coverage find_todo find_fixme count clean
+.PHONY: all init test coverage find_todo find_fixme count clean generate_docs
 
 all: test
 
