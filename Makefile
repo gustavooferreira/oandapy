@@ -26,8 +26,8 @@ count:
 clean:
 	rm -f .coverage
 	rm -rf oandapy.egg-info
+	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' | xargs rm -rf
-	find . -type f -name '*.pyc' | xargs rm -f
 	find . -type d -name '*.ropeproject' | xargs rm -rf
 
 generate_docs:
