@@ -7,7 +7,7 @@ Oanda REST-v20 API wrapper
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gustavooferreira/oandapy/blob/master/LICENCE.md)
 
 __NOTE__: DO NOT USE THIS LIBRARY!
-It is under heavy development and still lacks testing suits. It is also partially documented.
+It is under heavy development and still lacks testing suites. It is also partially documented.
 
 
 OVERVIEW
